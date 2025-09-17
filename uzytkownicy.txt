@@ -1,0 +1,3 @@
+Wiktor;Monka;witek;1234;Bibliotekarz
+Mateusz;Monka;mati;1234;Czytelnik
+Kacper;Nowak;admin;admin;Administrator
