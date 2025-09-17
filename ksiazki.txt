@@ -1,6 +1,6 @@
-Folwark Zwierzecy;George;Orwell;Dystopia;Ksiazka ukazujace systemy totalitarne za pomoca farmy zwierzat;1965;witek
-Wiedzmin;Andrzej;Sapkowski;Fantasy;Ksiazka opowiadajaca o Geralcie z Riwii;1990;login
-Harry Potter;J.K. Rowling;Rowling2;Fantasy;Ksiazka o ziomku z rozdzka z pod schodow;1995;login_uzytkownikalogin
+Folwark Zwierzecy;George;Orwell;Dystopia;Ksiazka ukazujace systemy totalitarne za pomoca farmy zwierzat;1965;mati
+Wiedzmin;Andrzej;Sapkowski;Fantasy;Ksiazka opowiadajaca o Geralcie z Riwii;1990;wolna
+Harry Potter;J.K. Rowling;Rowling2;Fantasy;Ksiazka o ziomku z rozdzka z pod schodow;1995;mati
 It;Stephen;King;Horror;Przerazajaca historia o klaunie porywajacym dzieci;1986;mati
 Zbrodnia i Kara;Fiodor;Dostojewski;Dramat;hisotria Rodiona Raskolnikova;1866;wolna
-Dzuma;ALbert;Camus;Dramat;Opowiesc o epidemii dzumy;1947;login_uzytkownika
+Dzuma;ALbert;Camus;Dramat;Opowiesc o epidemii dzumy;1947;wolna

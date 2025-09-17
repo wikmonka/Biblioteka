@@ -11,7 +11,7 @@
 int main() {
 	Uzytkownicy* wskaznik = nullptr;
 	Bibliotekarz biblio;
-	Czytelnik czytacz;
+	
 	Administrator admin;
 	while (true) {
 
@@ -38,8 +38,10 @@ int main() {
 			if (dane.first == "Bibliotekarz") {
 				wskaznik = &biblio;
 				wskaznik->menu();
+
 			}
 			else if (dane.first == "Czytelnik") {
+				Czytelnik czytacz("", "", dane.second, "", "");
 				wskaznik = &czytacz;
 				wskaznik->menu();
 			}

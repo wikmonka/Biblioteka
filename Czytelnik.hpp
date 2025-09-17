@@ -7,7 +7,7 @@
 class Czytelnik : public Uzytkownicy {
 public:
 	Czytelnik();
-	void menu();
+	void menu() override;
 	Czytelnik(std::string i, std::string n, std::string l, std::string h, std::string r);
-
+	
 };

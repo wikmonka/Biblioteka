@@ -14,6 +14,7 @@ void Czytelnik::menu() {
 	while (true) {
 		std::string wybor;
 		Ksiazka ksiazka;
+		//Czytelnik czytacz;
 		std::cout << "Wybierz opcje:" << std::endl;
 		std::cout << "1. Wyswietl ksiazki" << std::endl;
 		std::cout << "2. Wypozycz ksiazke" << std::endl;
@@ -27,10 +28,10 @@ void Czytelnik::menu() {
 			ksiazka.wyswietlKsiazki();
 		}
 		else if (wybor == "2") {
-			ksiazka.wypozyczKsiazke();
+			ksiazka.wypozyczKsiazke(this->login);//wskaznik na biezacy obiekt, przekazuje login do funkcji
 		}
 		else if (wybor == "3") {
-			std::cout << "Przyszla funkcja odpowiedzialna za Sprawdzanie wypozyczonych ksiazek";
+			ksiazka.sprawdzWypozyczone(this->login);
 		}
 		else if (wybor == "4") {
 			std::cout << "Przyszla funkcja odpowiedzialna za oddawanie ksiazek";

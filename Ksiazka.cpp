@@ -92,8 +92,7 @@ void Ksiazka::wyswietlKsiazki() {
 }
 
 
-void Ksiazka::wypozyczKsiazke() {
-	std::pair<std::string, std::string> dane = wczytajUzytkownikow();
+void Ksiazka::wypozyczKsiazke(std::string uzytkownik_login) {
 	std::string tytul_do_wypozyczenia;
 	std::cout << "Podaj tytul ksiazki do wypozyczenia: ";
 	std::getline(std::cin >> std::ws, tytul_do_wypozyczenia);
@@ -128,7 +127,7 @@ void Ksiazka::wypozyczKsiazke() {
 		if (tytul == tytul_do_wypozyczenia) {
 			znaleziono = true;
 			if (stan == "wolna") {
-				plik_wyjscie << tytul << ";" << autor_imie << ";" << autor_nazwisko << ";" << gatunek << ";" << opis << ";" << s_rok << ";" << dane.second  << std::endl;
+				plik_wyjscie << tytul << ";" << autor_imie << ";" << autor_nazwisko << ";" << gatunek << ";" << opis << ";" << s_rok << ";" << uzytkownik_login  << std::endl;
 				std::cout << "Pomyslnie wypozyczono ksiazke: " << tytul << std::endl;
 			}
 			else {
@@ -151,5 +150,51 @@ void Ksiazka::wypozyczKsiazke() {
 	else {
 		std::remove("ksiazki.txt");
 		std::rename("temp.txt", "ksiazki.txt");
+	}
+}
+
+
+void Ksiazka::sprawdzWypozyczone(std::string uzytkownik_login) {
+	std::ifstream plik("ksiazki.txt", std::ios::in);
+	std::string linia;
+	std::cout << "\n";
+	if (plik.good() == false)
+	{
+		std::cerr << "Nie mozna otworzyc pliku!" << std::endl;
+		exit(0);
+	}
+	else {
+		std::cout << "Twoje wypozyczone ksiazki " << std::endl;
+		std::cout << "\n";
+		while (std::getline(plik, linia)) {
+			std::string /*s_id,*/ tytul, autor_imie, autor_nazwisko, gatunek, opis, s_rok, stan;
+
+			std::istringstream iss(linia);
+			//std::getline(iss, s_id, ';');
+			std::getline(iss, tytul, ';');
+			std::getline(iss, autor_imie, ';');
+			std::getline(iss, autor_nazwisko, ';');
+			std::getline(iss, gatunek, ';');
+			std::getline(iss, opis, ';');
+			std::getline(iss, s_rok, ';');
+			std::getline(iss, stan, ';');
+
+			//int id_ksiazki = std::stoi(s_id);
+			int rok_wydania = std::stoi(s_rok);
+
+			if (stan == uzytkownik_login) {
+
+				std::cout << "Tytul: " << tytul << std::endl;
+				std::cout << "Autor: " << autor_imie << " " << autor_nazwisko << std::endl;
+				std::cout << "Gatunek: " << gatunek << std::endl;
+				std::cout << "Opis: " << opis << std::endl;
+				std::cout << "Rok wydania: " << rok_wydania << std::endl;
+				std::cout << "Stan: " << stan << std::endl;
+				std::cout << "--------------------------------" << std::endl;
+			}
+			else {
+				continue;
+			}
+		}
 	}
 }
