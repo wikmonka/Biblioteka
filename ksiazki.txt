@@ -1,5 +1,5 @@
-Folwark Zwierzecy;George;Orwell;Dystopia;Ksiazka ukazujace systemy totalitarne za pomoca farmy zwierzat;1965;mati
-Wiedzmin;Andrzej;Sapkowski;Fantasy;Ksiazka opowiadajaca o Geralcie z Riwii;1990;wolna
-Harry Potter;J.K. Rowling;Rowling2;Fantasy;Ksiazka o ziomku z rozdzka z pod schodow;1995;mati
-It;Stephen;King;Horror;Przerazajaca historia o klaunie porywajacym dzieci;1986;mati
-Zbrodnia i Kara;Fiodor;Dostojewski;Dramat;hisotria Rodiona Raskolnikova;1866;wolna
+Wiktor;Monka;witek;1234;Bibliotekarz
+Mateusz;Monka;mati;1234;Czytelnik
+Kacper;Nowak;admin;admin;Administrator
+Marcel;Kowalski;kowal;1234;Czytelnik
+Jakub;Szerszen;kuba;1234;Czytelnik

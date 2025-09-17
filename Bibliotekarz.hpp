@@ -10,5 +10,6 @@ public:
 	Bibliotekarz(std::string i, std::string n, std::string l, std::string h, std::string r);
 	void wyswietlKsiazki();
 	void dodajUzytkownika();
+	void wyswietlUzytkownikow();
 
 };

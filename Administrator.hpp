@@ -12,4 +12,5 @@ public:
 	void wyswietlKsiazki();
 	void dodajUzytkownika();
 	void usunUzytkownika();
+	void wyswietlUzytkownikow();
 };

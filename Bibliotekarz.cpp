@@ -25,7 +25,8 @@ void Bibliotekarz::menu() {
 		std::cout << "2. Dodaj ksiazke" << std::endl;
 		std::cout << "3. Usun ksiazke" << std::endl;
 		std::cout << "4. Wyswietl Czytelnikow" << std::endl;
-		std::cout << "5. Cofnij" << std::endl;
+		std::cout << "5. Dodaj Czytelnika" << std::endl;
+		std::cout << "6. Cofnij" << std::endl;
 		std::cout << "Wybor: ";
 		std::cin >> wybor;
 
@@ -120,5 +121,41 @@ void Bibliotekarz::dodajUzytkownika() {
 		plik << imie << ";" << nazwisko << ";" << login << ";" << haslo << ";" << "Czytelnik" << std::endl;
 		std::cout << "Dodano nowego czytelnika: " << login << std::endl;
 		plik.close();
+	}
+}
+
+
+void Bibliotekarz::wyswietlUzytkownikow() {
+	std::string linia;
+	std::ifstream plik_u("uzytkownicy.txt", std::ios::app);
+	std::cout << "\n";
+	std::cout << "Lista Czytelnikow: " << std::endl;
+	std::cout << "\n";
+
+	if (plik_u.good() == false) {
+		std::cout << "Nie udalo sie wczytac pliku uzytkownicy.txt" << std::endl;
+	}
+	else {
+		bool znaleziono = false;   // flaga
+		while (std::getline(plik_u, linia)) {
+			std::string imie, nazwisko, login, haslo, typ;
+
+			std::istringstream iss(linia);
+			std::getline(iss, imie, ';');
+			std::getline(iss, nazwisko, ';');
+			std::getline(iss, login, ';');
+			std::getline(iss, haslo, ';');
+			std::getline(iss, typ, ';');
+
+			if (typ == "Czytelnik") {
+				std::cout << "Uzytkownik: " << login << std::endl;
+				std::cout << "imie i nazwisko: " << imie << " " << nazwisko << std::endl;
+				std::cout << "\n";
+			}
+			else continue;
+
+
+		}
+
 	}
 }

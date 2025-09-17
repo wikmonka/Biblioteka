@@ -12,7 +12,7 @@ public:
 
 	virtual void menu() = 0;
 	virtual void wyswietlKsiazki() = 0;
-	void wyswietlUzytkownikow();
+	virtual void wyswietlUzytkownikow() = 0;
 	virtual void dodajUzytkownika() = 0;
 	
 };
