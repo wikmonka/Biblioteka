@@ -19,6 +19,8 @@ public:
 	void wypozyczKsiazke(std::string uzytkownik_login);
 
 	void sprawdzWypozyczone(std::string uzytkownik_login);
+
+	void zwrocKsiazke(std::string uzytkownik_login);
 	
 };
 

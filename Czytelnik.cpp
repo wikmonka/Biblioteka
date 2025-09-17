@@ -34,7 +34,7 @@ void Czytelnik::menu() {
 			ksiazka.sprawdzWypozyczone(this->login);
 		}
 		else if (wybor == "4") {
-			std::cout << "Przyszla funkcja odpowiedzialna za oddawanie ksiazek";
+			ksiazka.zwrocKsiazke(this->login);
 		}
 		else if (wybor == "5") {
 			break;

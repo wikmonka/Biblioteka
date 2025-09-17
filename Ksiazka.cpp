@@ -132,7 +132,7 @@ void Ksiazka::wypozyczKsiazke(std::string uzytkownik_login) {
 			}
 			else {
 				plik_wyjscie << linia << std::endl;
-				std::cout << "Ksiazka jest juz wypozyczona przez: " << stan << std::endl;
+				std::cout << tytul <<"Ta ksiazka jest obecnie wypozyczona " << std::endl;
 			}
 		}
 		else {
@@ -196,5 +196,66 @@ void Ksiazka::sprawdzWypozyczone(std::string uzytkownik_login) {
 				continue;
 			}
 		}
+	}
+}
+
+void Ksiazka::zwrocKsiazke(std::string uzytkownik_login) {
+	std::string tytul_do_zwrotu;
+	std::cout << "Podaj tytul ksiazki do zwrotu: ";
+	std::getline(std::cin >> std::ws, tytul_do_zwrotu);
+
+	std::ifstream plik_wejscie("ksiazki.txt");
+	if (!plik_wejscie) {
+		std::cerr << "Nie mozna otworzyc pliku ksiazki.txt!" << std::endl;
+		return;
+	}
+
+	std::ofstream plik_wyjscie("temp.txt");
+	if (!plik_wyjscie) {
+		std::cerr << "Nie mozna utworzyc pliku tymczasowego!" << std::endl;
+		plik_wejscie.close();
+		return;
+	}
+
+	bool znaleziono = false;
+	std::string linia;
+	while (std::getline(plik_wejscie, linia)) {
+		std::istringstream iss(linia);
+		std::string tytul, autor_imie, autor_nazwisko, gatunek, opis, s_rok, stan;
+
+		std::getline(iss, tytul, ';');
+		std::getline(iss, autor_imie, ';');
+		std::getline(iss, autor_nazwisko, ';');
+		std::getline(iss, gatunek, ';');
+		std::getline(iss, opis, ';');
+		std::getline(iss, s_rok, ';');
+		std::getline(iss, stan, ';');
+
+		if (tytul == tytul_do_zwrotu) {
+			znaleziono = true;
+			if (stan == uzytkownik_login) {
+				plik_wyjscie << tytul << ";" << autor_imie << ";" << autor_nazwisko << ";" << gatunek << ";" << opis << ";" << s_rok << ";" << "wolna" << std::endl;
+				std::cout << "Oddano ksiazke: " << tytul << std::endl;
+			}
+			else {
+				plik_wyjscie << linia << std::endl;
+				std::cout << tytul << " - Ta ksiazka nie jest przez Ciebie wypozyczona" << std::endl;
+			}
+		}
+		else {
+			plik_wyjscie << linia << std::endl;
+		}
+	}
+
+	plik_wejscie.close();
+	plik_wyjscie.close();
+
+	if (!znaleziono) {
+		std::cout << "Nie znaleziono ksiazki o podanym tytule." << std::endl;
+		std::remove("temp.txt");
+	}
+	else {
+		std::remove("ksiazki.txt");
+		std::rename("temp.txt", "ksiazki.txt");
 	}
 }
