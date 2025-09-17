@@ -13,6 +13,8 @@ Bibliotekarz::Bibliotekarz(std::string i, std::string n, std::string l, std::str
 
 Bibliotekarz::Bibliotekarz() : Uzytkownicy("", "", "", "", "") {}
 
+
+
 void Bibliotekarz::menu() {
 	std::cout << "Udalo sie! Wyswietlam menu dla Bibliotekarza" << std::endl;
 	while (true) {
@@ -34,12 +36,15 @@ void Bibliotekarz::menu() {
 			ksiazka.zapiszKsiazke();
 		}
 		else if (wybor == "3") {
-			std::cout << "Przyszla funkcja odpowiedzialna za usuwanie ksiazek";
+			ksiazka.usunKsiazke();
 		} 
 		else if (wybor == "4") {
-			std::cout << "Przyszla funkcja odpowiedzialna Wyswietlanie czytelnikow";
+			wyswietlUzytkownikow();
 		}
 		else if (wybor == "5") {
+			Bibliotekarz::dodajUzytkownika();
+		}
+		else if (wybor == "6") {
 			break;
 		}
 		else {
@@ -88,4 +93,32 @@ void Bibliotekarz::wyswietlKsiazki() {
 		}
 	}
 
+}
+
+
+
+
+void Bibliotekarz::dodajUzytkownika() {
+	std::cout << "\n";
+	std::cout << "Podaj imie nowego czytelnika: " << std::endl;
+	std::getline(std::cin >> std::ws, imie); //czysci pierwsza linie przed getline
+	std::cout << "Podaj nazwisko nowego czytelnika: " << std::endl;
+	std::getline(std::cin, nazwisko);
+	std::cout << "Podaj login nowego czytelnika: " << std::endl;
+	std::getline(std::cin, login);
+	std::cout << "Podaj haslo nowego czytelnika: " << std::endl;
+	std::getline(std::cin, haslo);
+
+
+
+	std::ofstream plik("uzytkownicy.txt", std::ios::app);
+	if (!plik) {
+		std::cerr << "Nie mozna otworzyc pliku!" << std::endl;
+		exit(0);
+	}
+	else {
+		plik << imie << ";" << nazwisko << ";" << login << ";" << haslo << ";" << "Czytelnik" << std::endl;
+		std::cout << "Dodano nowego czytelnika: " << login << std::endl;
+		plik.close();
+	}
 }

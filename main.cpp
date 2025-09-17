@@ -11,28 +11,17 @@
 int main() {
 	Uzytkownicy* wskaznik = nullptr;
 	Bibliotekarz biblio;
-	
 	Administrator admin;
 	while (true) {
 
-		std::cout << "Pierwsze Menu\n";
-		std::cout << "--------------------------------\n";
-		std::cout << "1. Wprowadz ksiazke\n";
-		std::cout << "2. Wyswietl ksiazki\n";
-		std::cout << "3. Zaloguj\n";
-		std::cout << "4. Wyjdz\n";
+		std::cout << "Biblioteka - Panel logowania\n";
+		std::cout << "\n";
+		std::cout << "1. Zaloguj\n";
+		std::cout << "2. Wyjdz\n";
 		int wybor;
 		std::cout << "Wybor: ";
 		std::cin >> wybor;
 		if (wybor == 1) {
-			Ksiazka ksiazka;
-			ksiazka.zapiszKsiazke();
-		}
-		else if (wybor == 2) {
-			Ksiazka ksiazka;
-			//ksiazka.wyswietlKsiazki();
-		}
-		else if (wybor == 3) {
 			std::pair<std::string, std::string> dane = wczytajUzytkownikow();
 			if (dane.first == "Bibliotekarz") {
 				wskaznik = &biblio;
@@ -50,7 +39,7 @@ int main() {
 			}
 			else std::cerr << "Błedny login lub haslo" << std::endl;
 		}
-		else if (wybor == 4) {
+		else if (wybor == 2) {
 			std::cout << "Koniec programu\n";
 			return 0;
 		}

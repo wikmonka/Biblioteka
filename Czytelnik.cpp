@@ -89,3 +89,7 @@ void Czytelnik::wyswietlKsiazki() {
 		}
 	}
 }
+
+void Czytelnik::dodajUzytkownika() {
+	std::cout << "Funkcja dodajUzytkownika jeszcze nie zaimplementowana" << std::endl;
+}

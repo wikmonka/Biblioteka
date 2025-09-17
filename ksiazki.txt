@@ -3,4 +3,3 @@ Wiedzmin;Andrzej;Sapkowski;Fantasy;Ksiazka opowiadajaca o Geralcie z Riwii;1990;
 Harry Potter;J.K. Rowling;Rowling2;Fantasy;Ksiazka o ziomku z rozdzka z pod schodow;1995;mati
 It;Stephen;King;Horror;Przerazajaca historia o klaunie porywajacym dzieci;1986;mati
 Zbrodnia i Kara;Fiodor;Dostojewski;Dramat;hisotria Rodiona Raskolnikova;1866;wolna
-Dzuma;ALbert;Camus;Dramat;Opowiesc o epidemii dzumy;1947;wolna

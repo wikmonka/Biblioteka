@@ -12,7 +12,8 @@ public:
 
 	virtual void menu() = 0;
 	virtual void wyswietlKsiazki() = 0;
-
+	void wyswietlUzytkownikow();
+	virtual void dodajUzytkownika() = 0;
 	
 };
 std::pair<std::string, std::string> wczytajUzytkownikow();

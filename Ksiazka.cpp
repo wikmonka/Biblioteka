@@ -52,7 +52,62 @@ void Ksiazka::zapiszKsiazke() {
 	}
 }
 
+void Ksiazka::usunKsiazke() {
+	std::string tytul_do_usuniecia;
+	std::cout << "Podaj tytul ksiazki do wypozyczenia: ";
+	std::getline(std::cin >> std::ws, tytul_do_usuniecia);
 
+	std::ifstream plik_wejscie("ksiazki.txt");
+	if (!plik_wejscie) {
+		std::cerr << "Nie mozna otworzyc pliku ksiazki.txt!" << std::endl;
+		return;
+	}
+
+	std::ofstream plik_wyjscie("temp.txt");
+	if (!plik_wyjscie) {
+		std::cerr << "Nie mozna utworzyc pliku tymczasowego!" << std::endl;
+		plik_wejscie.close();
+		return;
+	}
+
+	bool znaleziono = false;
+	std::string linia;
+	while (std::getline(plik_wejscie, linia)) {
+		std::istringstream iss(linia);
+		std::string tytul, autor_imie, autor_nazwisko, gatunek, opis, s_rok, stan;
+
+		std::getline(iss, tytul, ';');
+		std::getline(iss, autor_imie, ';');
+		std::getline(iss, autor_nazwisko, ';');
+		std::getline(iss, gatunek, ';');
+		std::getline(iss, opis, ';');
+		std::getline(iss, s_rok, ';');
+		std::getline(iss, stan, ';');
+
+		if (tytul == tytul_do_usuniecia) {
+			znaleziono = true;
+			std::cout << "Usunieto ksiazke: " << tytul << std::endl;
+		}
+		else {
+			plik_wyjscie << linia << std::endl;
+		}
+	}
+
+	plik_wejscie.close();
+	plik_wyjscie.close();
+
+	if (!znaleziono) {
+		std::cout << "Nie znaleziono ksiazki o podanym tytule." << std::endl;
+		std::remove("temp.txt");
+	}
+	else {
+		std::remove("ksiazki.txt");
+		if (std::rename("temp.txt", "ksiazki.txt") != 0) {
+			std::cerr << "Blad podczas zmiany nazwy pliku!" << std::endl;
+		};
+
+	}
+}
 
 
 void Ksiazka::wypozyczKsiazke(std::string uzytkownik_login) {

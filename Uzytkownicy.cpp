@@ -45,6 +45,7 @@ std::pair<std::string, std::string> wczytajUzytkownikow() {
 
 			if (try_login == login && try_haslo == haslo) {
 				std::cout << "Zalogowano jako " << imie << " " << nazwisko << std::endl;
+				std::cout << "\n";
 				znaleziono = true;
 				return { typ, login };
 			}
@@ -59,3 +60,37 @@ std::pair<std::string, std::string> wczytajUzytkownikow() {
 	}
 }
 
+void Uzytkownicy::wyswietlUzytkownikow() {
+	std::string linia;
+	std::ifstream plik_u("uzytkownicy.txt", std::ios::app);
+	std::cout << "\n";
+	std::cout << "Lista Czytelnikow: " << std::endl;
+	std::cout << "\n";
+
+	if (plik_u.good() == false) {
+		std::cout << "Nie udalo sie wczytac pliku uzytkownicy.txt" << std::endl;
+	}
+	else {
+		bool znaleziono = false;   // flaga
+		while (std::getline(plik_u, linia)) {
+			std::string imie, nazwisko, login, haslo, typ;
+
+			std::istringstream iss(linia);
+			std::getline(iss, imie, ';');
+			std::getline(iss, nazwisko, ';');
+			std::getline(iss, login, ';');
+			std::getline(iss, haslo, ';');
+			std::getline(iss, typ, ';');
+
+			if (typ == "Czytelnik") {
+				std::cout << "Uzytkownik: " << login << std::endl;
+				std::cout << "imie i nazwisko: " << imie << " " << nazwisko << std::endl;
+				std::cout << "\n";
+			}
+			else continue;
+
+
+		}
+
+	}
+}

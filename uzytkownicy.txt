@@ -1,3 +1,5 @@
 Wiktor;Monka;witek;1234;Bibliotekarz
 Mateusz;Monka;mati;1234;Czytelnik
 Kacper;Nowak;admin;admin;Administrator
+Marcel;Kowalski;kowal;1234;Czytelnik
+Jakub;Szerszen;kuba;1234;Czytelnik
