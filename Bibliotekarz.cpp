@@ -66,7 +66,7 @@ void Bibliotekarz::wyswietlKsiazki() {
 	else {
 		std::cout << "Lista ksiazek w bibliotece: " << std::endl;
 		while (std::getline(plik, linia)) {
-			std::string tytul, autor_imie, autor_nazwisko, gatunek, opis, s_rok, stan;
+			std::string tytul, autor_imie, autor_nazwisko, gatunek, opis, s_rok, nosnik, stan;
 			std::istringstream iss(linia);
 			std::getline(iss, tytul, ';');
 			std::getline(iss, autor_imie, ';');
@@ -74,6 +74,7 @@ void Bibliotekarz::wyswietlKsiazki() {
 			std::getline(iss, gatunek, ';');
 			std::getline(iss, opis, ';');
 			std::getline(iss, s_rok, ';');
+			std::getline(iss, nosnik, ';');
 			std::getline(iss, stan, ';');
 
 			int rok_wydania = std::stoi(s_rok);
@@ -83,6 +84,7 @@ void Bibliotekarz::wyswietlKsiazki() {
 			std::cout << "Gatunek: " << gatunek << std::endl;
 			std::cout << "Opis: " << opis << std::endl;
 			std::cout << "Rok wydania: " << rok_wydania << std::endl;
+			std::cout << "Nosnik: " << nosnik << std::endl;
 			if (stan == "wolna") {
 				std::cout << "Stan: Dostepna" << std::endl;
 			}

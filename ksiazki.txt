@@ -1,5 +1,4 @@
-Wiktor;Monka;witek;1234;Bibliotekarz
-Mateusz;Monka;mati;1234;Czytelnik
-Kacper;Nowak;admin;admin;Administrator
-Marcel;Kowalski;kowal;1234;Czytelnik
-Jakub;Szerszen;kuba;1234;Czytelnik
+Dzuma;Albert;Camus;Dramat;Dramat opowiadajacy o epidemii dzumy;1947;audiobook;wolna
+Harry Potter;J.K.;Rowling;Beletrystyka;Opowiesc o malym czarodzieju;1980;ksiazka;wolna
+Metro2033;Dimitry;Glukhowsky;Horror;Post-apo o ludziach zyjacych w Moskiewskim metrze;2000;e-book;wolna
+Pan Tadeusz;Adam;Mickiewicz;Dramat;troche o ksiedzu Robaku, troche o Jacku Soplicy;1800;e-book;wolna

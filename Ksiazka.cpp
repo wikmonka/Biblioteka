@@ -9,7 +9,7 @@
 
 
 
-Ksiazka::Ksiazka(/*int id, */std::string t, std::string a_i, std::string a_n, std::string g, std::string o, int r_w, std::string s) {
+Ksiazka::Ksiazka(/*int id, */std::string t, std::string a_i, std::string a_n, std::string g, std::string o, int r_w, std::string n, std::string s) {
 	//id_ksiazki = id;
 	tytul = t;
 	autor_imie = a_i;
@@ -17,6 +17,7 @@ Ksiazka::Ksiazka(/*int id, */std::string t, std::string a_i, std::string a_n, st
 	gatunek = g;
 	opis = o;
 	rok_wydania = r_w;
+	nosnik = n;
 	stan = s;
 
 }
@@ -31,25 +32,45 @@ void Ksiazka::zapiszKsiazke() {
 	std::getline(std::cin, autor_imie);
 	std::cout << "Podaj nazwisko autora: ";
 	std::getline(std::cin, autor_nazwisko);
-	std::cout << "Podaj gatunek: ";
+	std::cout << "Dostepne gatunki: Horror/Dramat/Komedia/Sci-Fi/Beletrystyka/Dokument/Biografia/Kryminal/Thriller/Romans. " << std::endl;
+	std::cout << "Wybor: ";
 	std::getline(std::cin, gatunek);
 	std::cout << "Podaj opis: ";
 	std::getline(std::cin, opis);
 	std::cout << "Podaj rok wydania: ";
 	std::cin >> rok_wydania;
-	//std::getline(std::cin, stan);
-
+	std::cout << "nosnik (ksiazka/e-book/audiobook): ";
+	std::cin >> nosnik;
 
 	std::ofstream plik("ksiazki.txt", std::ios::app);
-
-	if (!plik) {
-		std::cerr << "Nie mozna otworzyc pliku!" << std::endl;
-		exit(0);
+	if (nosnik == "ksiazka" || nosnik == "e-book" || nosnik == "audiobook") {
+		if (gatunek == "Horror" || gatunek == "Dramat" || gatunek == "Komedia" || gatunek == "Sci-Fi" || gatunek == "Beletrystyka" || gatunek == "Dokument" || gatunek == "Biografia" || gatunek == "Kryminal" || gatunek == "Thriller" || gatunek == "Romans") {
+			if (!plik) {
+				std::cerr << "Nie mozna otworzyc pliku!" << std::endl;
+				return;
+			}
+			else {
+				plik /* << id_ksiazki << ";"*/ << tytul << ";" << autor_imie << ";" << autor_nazwisko << ";" << gatunek << ";" << opis << ";" << rok_wydania << ";" << nosnik << ";" << "wolna" << std::endl;
+				plik.close();
+				std::cout << "Pomyslnie dodano nowy/a " << nosnik << ": " << tytul << std::endl;
+			}
+		}
+		else {
+			std::cout << "Podaj odpowieni gatunek!" << std::endl;
+			std::cout << "\n";
+			return;
+		}
 	}
 	else {
-		plik /* << id_ksiazki << ";"*/ << tytul << ";" << autor_imie << ";" << autor_nazwisko << ";" << gatunek << ";" << opis << ";" << rok_wydania << ";" << "wolna" << std::endl;
-		plik.close();
+		std::cout << "Podaj odpowieni Nosnik!" << std::endl;
+		std::cout << "\n";
+		return;
 	}
+	
+
+	
+
+	
 }
 
 void Ksiazka::usunKsiazke() {
@@ -74,7 +95,7 @@ void Ksiazka::usunKsiazke() {
 	std::string linia;
 	while (std::getline(plik_wejscie, linia)) {
 		std::istringstream iss(linia);
-		std::string tytul, autor_imie, autor_nazwisko, gatunek, opis, s_rok, stan;
+		std::string tytul, autor_imie, autor_nazwisko, gatunek, opis, s_rok, nosnik, stan;
 
 		std::getline(iss, tytul, ';');
 		std::getline(iss, autor_imie, ';');
@@ -82,6 +103,7 @@ void Ksiazka::usunKsiazke() {
 		std::getline(iss, gatunek, ';');
 		std::getline(iss, opis, ';');
 		std::getline(iss, s_rok, ';');
+		std::getline(iss, nosnik, ';');
 		std::getline(iss, stan, ';');
 
 		if (tytul == tytul_do_usuniecia) {
@@ -132,20 +154,20 @@ void Ksiazka::wypozyczKsiazke(std::string uzytkownik_login) {
 	std::string linia;
 	while (std::getline(plik_wejscie, linia)) {
 		std::istringstream iss(linia);
-		std::string tytul, autor_imie, autor_nazwisko, gatunek, opis, s_rok, stan;
-
+		std::string tytul, autor_imie, autor_nazwisko, gatunek, opis, s_rok, nosnik, stan;
 		std::getline(iss, tytul, ';');
 		std::getline(iss, autor_imie, ';');
 		std::getline(iss, autor_nazwisko, ';');
 		std::getline(iss, gatunek, ';');
 		std::getline(iss, opis, ';');
 		std::getline(iss, s_rok, ';');
+		std::getline(iss, nosnik, ';');
 		std::getline(iss, stan, ';');
 
 		if (tytul == tytul_do_wypozyczenia) {
 			znaleziono = true;
 			if (stan == "wolna") {
-				plik_wyjscie << tytul << ";" << autor_imie << ";" << autor_nazwisko << ";" << gatunek << ";" << opis << ";" << s_rok << ";" << uzytkownik_login  << std::endl;
+				plik_wyjscie << tytul << ";" << autor_imie << ";" << autor_nazwisko << ";" << gatunek << ";" << opis << ";" << s_rok << ";" << nosnik << ";" << uzytkownik_login << std::endl;
 				std::cout << "Pomyslnie wypozyczono ksiazke: " << tytul << std::endl;
 			}
 			else {
@@ -188,7 +210,7 @@ void Ksiazka::sprawdzWypozyczone(std::string uzytkownik_login) {
 		std::cout << "Twoje wypozyczone ksiazki " << std::endl;
 		std::cout << "\n";
 		while (std::getline(plik, linia)) {
-			std::string /*s_id,*/ tytul, autor_imie, autor_nazwisko, gatunek, opis, s_rok, stan;
+			std::string /*s_id,*/ tytul, autor_imie, autor_nazwisko, gatunek, opis, s_rok, nosnik, stan;
 
 			std::istringstream iss(linia);
 			//std::getline(iss, s_id, ';');
@@ -198,6 +220,7 @@ void Ksiazka::sprawdzWypozyczone(std::string uzytkownik_login) {
 			std::getline(iss, gatunek, ';');
 			std::getline(iss, opis, ';');
 			std::getline(iss, s_rok, ';');
+			std::getline(iss, nosnik, ';');
 			std::getline(iss, stan, ';');
 
 			//int id_ksiazki = std::stoi(s_id);
@@ -210,6 +233,7 @@ void Ksiazka::sprawdzWypozyczone(std::string uzytkownik_login) {
 				std::cout << "Gatunek: " << gatunek << std::endl;
 				std::cout << "Opis: " << opis << std::endl;
 				std::cout << "Rok wydania: " << rok_wydania << std::endl;
+				std::cout << "Nosnik: " << nosnik << std::endl;
 				std::cout << "Stan: " << stan << std::endl;
 				std::cout << "--------------------------------" << std::endl;
 			}
@@ -242,7 +266,7 @@ void Ksiazka::zwrocKsiazke(std::string uzytkownik_login) {
 	std::string linia;
 	while (std::getline(plik_wejscie, linia)) {
 		std::istringstream iss(linia);
-		std::string tytul, autor_imie, autor_nazwisko, gatunek, opis, s_rok, stan;
+		std::string tytul, autor_imie, autor_nazwisko, gatunek, opis, s_rok, nosnik, stan;
 
 		std::getline(iss, tytul, ';');
 		std::getline(iss, autor_imie, ';');
@@ -250,12 +274,13 @@ void Ksiazka::zwrocKsiazke(std::string uzytkownik_login) {
 		std::getline(iss, gatunek, ';');
 		std::getline(iss, opis, ';');
 		std::getline(iss, s_rok, ';');
+		std::getline(iss, nosnik, ';');
 		std::getline(iss, stan, ';');
 
 		if (tytul == tytul_do_zwrotu) {
 			znaleziono = true;
 			if (stan == uzytkownik_login) {
-				plik_wyjscie << tytul << ";" << autor_imie << ";" << autor_nazwisko << ";" << gatunek << ";" << opis << ";" << s_rok << ";" << "wolna" << std::endl;
+				plik_wyjscie << tytul << ";" << autor_imie << ";" << autor_nazwisko << ";" << gatunek << ";" << opis << ";" << s_rok << ";" << nosnik << ';' << "wolna" << std::endl;
 				std::cout << "Oddano ksiazke: " << tytul << std::endl;
 			}
 			else {

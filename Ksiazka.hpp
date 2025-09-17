@@ -6,10 +6,10 @@
 
 class Ksiazka {
 public:
-	std::string tytul, autor_imie, autor_nazwisko, gatunek, opis, stan;
+	std::string tytul, autor_imie, autor_nazwisko, gatunek, opis, nosnik, stan;
 	int /*id_ksiazki, */rok_wydania;
 
-	Ksiazka(/*int = 0,*/ std::string = "tytul_test", std::string = "autor_imie_test", std::string = "autor_nazwisko_test", std::string = "gatunek_test", std::string = "opis_test", int = 0, std::string = "");
+	Ksiazka(std::string = "tytul_test", std::string = "autor_imie_test", std::string = "autor_nazwisko_test", std::string = "gatunek_test", std::string = "opis_test", int = 0, std::string = "", std::string = "");
 
 	~Ksiazka() {}
 	
