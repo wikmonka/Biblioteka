@@ -58,3 +58,4 @@ std::pair<std::string, std::string> wczytajUzytkownikow() {
 
 	}
 }
+

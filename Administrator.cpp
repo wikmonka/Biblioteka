@@ -10,3 +10,7 @@ Administrator::Administrator() : Uzytkownicy("", "", "", "", "") {}
 void Administrator::menu() {
 	std::cout << "Udalo sie! Wyswietlam menu Administratora!" << std::endl;
 }
+
+void Administrator::wyswietlKsiazki() {
+	std::cout << "wyswietlam ksiazki dla admina";
+}

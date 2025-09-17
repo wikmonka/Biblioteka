@@ -52,44 +52,7 @@ void Ksiazka::zapiszKsiazke() {
 	}
 }
 
-void Ksiazka::wyswietlKsiazki() {
-	std::ifstream plik("ksiazki.txt", std::ios::in);
-	std::string linia;
-	std::cout << "\n";
-	if (plik.good() == false)
-	{
-		std::cerr << "Nie mozna otworzyc pliku!" << std::endl;
-		exit(0);
-	} else{
-		std::cout << "Lista ksiazek w bibliotece: " << std::endl;
-		while (std::getline(plik, linia)) {
-			std::string /*s_id,*/ tytul, autor_imie, autor_nazwisko, gatunek, opis, s_rok, stan;
-			
-			std::istringstream iss(linia);
-			//std::getline(iss, s_id, ';');
-			std::getline(iss, tytul, ';');
-			std::getline(iss, autor_imie, ';');
-			std::getline(iss, autor_nazwisko, ';');
-			std::getline(iss, gatunek, ';');
-			std::getline(iss, opis, ';');
-			std::getline(iss, s_rok, ';');
-			std::getline(iss, stan, ';');
 
-			//int id_ksiazki = std::stoi(s_id);
-			int rok_wydania = std::stoi(s_rok);
-
-			//std::cout << "ID ksiazki: " << id_ksiazki << std::endl;
-			std::cout << "Tytul: " << tytul << std::endl;
-			std::cout << "Autor: " << autor_imie << " " << autor_nazwisko << std::endl;
-			std::cout << "Gatunek: " << gatunek << std::endl;
-			std::cout << "Opis: " << opis << std::endl;
-			std::cout << "Rok wydania: " << rok_wydania << std::endl;
-			std::cout << "Stan: " << stan << std::endl;
-			std::cout << "--------------------------------" << std::endl;
-		}
-	}
-	
-}
 
 
 void Ksiazka::wypozyczKsiazke(std::string uzytkownik_login) {
@@ -149,7 +112,10 @@ void Ksiazka::wypozyczKsiazke(std::string uzytkownik_login) {
 	}
 	else {
 		std::remove("ksiazki.txt");
-		std::rename("temp.txt", "ksiazki.txt");
+		if (std::rename("temp.txt", "ksiazki.txt") != 0) {
+			std::cerr << "Blad podczas zmiany nazwy pliku!" << std::endl;
+		};
+		
 	}
 }
 
@@ -256,6 +222,8 @@ void Ksiazka::zwrocKsiazke(std::string uzytkownik_login) {
 	}
 	else {
 		std::remove("ksiazki.txt");
-		std::rename("temp.txt", "ksiazki.txt");
+		if (std::rename("temp.txt", "ksiazki.txt") != 0) {
+    std::cerr << "Blad podczas zmiany nazwy pliku!" << std::endl;
+}
 	}
 }

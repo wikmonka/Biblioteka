@@ -15,7 +15,6 @@ int main() {
 	Administrator admin;
 	while (true) {
 
-		std::cout << "Hello World!\n";
 		std::cout << "Pierwsze Menu\n";
 		std::cout << "--------------------------------\n";
 		std::cout << "1. Wprowadz ksiazke\n";
@@ -31,7 +30,7 @@ int main() {
 		}
 		else if (wybor == 2) {
 			Ksiazka ksiazka;
-			ksiazka.wyswietlKsiazki();
+			//ksiazka.wyswietlKsiazki();
 		}
 		else if (wybor == 3) {
 			std::pair<std::string, std::string> dane = wczytajUzytkownikow();

@@ -11,6 +11,7 @@ public:
 	~Uzytkownicy() {}
 
 	virtual void menu() = 0;
+	virtual void wyswietlKsiazki() = 0;
 
 	
 };
