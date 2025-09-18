@@ -6,15 +6,13 @@
 #include <limits> //czyszczenie linii przed getline
 #include <cstdlib>//exit przy sprawdzaniu odczytu pliku
 
-Administrator::Administrator(std::string i, std::string n, std::string l, std::string h, std::string r)
-	: Uzytkownicy(i, n, l, h, r) {}
 
 Administrator::Administrator() : Uzytkownicy("", "", "", "", "") {}
 
 void Administrator::menu() {
 	std::string wybor;
 	while (true) {
-		std::cout << "Wyswietlam menu Administratora: " << std::endl;
+		std::cout << "Menu Administratora: " << std::endl;
 		std::cout << "1. Dodaj Uzytkownika" << std::endl;
 		std::cout << "2. Usun Uzytkownika" << std::endl;
 		std::cout << "3. Wyswietl wszystkich uzytkownikow biblioteki" << std::endl;

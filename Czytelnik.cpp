@@ -10,15 +10,14 @@
 
 Czytelnik::Czytelnik(std::string i, std::string n, std::string l, std::string h, std::string r)
 	: Uzytkownicy(i, n, l, h, r) {}
+    
 
-Czytelnik::Czytelnik() : Uzytkownicy("", "", "", "", "") {}
 
 void Czytelnik::menu() {
-	std::cout << "Udalo sie! Wyswietlam menu Czytelnika!" << std::endl;
+	std::cout << "Menu Czytelnika!" << std::endl;
 	while (true) {
 		std::string wybor;
 		Ksiazka ksiazka;
-		//Czytelnik czytacz;
 		std::cout << "Wybierz opcje:" << std::endl;
 		std::cout << "1. Wyswietl ksiazki" << std::endl;
 		std::cout << "2. Wypozycz ksiazke" << std::endl;
@@ -159,7 +158,6 @@ void Czytelnik::wyswietlKsiazki() {
 }
 
 void Czytelnik::dodajUzytkownika() {
-	//std::cout << "Funkcja dodajUzytkownika jeszcze nie zaimplementowana" << std::endl;
 }
 
 void Czytelnik::wyswietlUzytkownikow() {

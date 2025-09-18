@@ -9,6 +9,7 @@
 #include "Administrator.hpp"
 
 int main() {
+	Czytelnik uzyt("Waclaw", "Nowak", "wacek", "1234", "Czytelnik");
 	Uzytkownicy* wskaznik = nullptr;
 	Bibliotekarz biblio;
 	Administrator admin;
@@ -22,7 +23,7 @@ int main() {
 		std::cout << "Wybor: ";
 		std::cin >> wybor;
 		if (wybor == 1) {
-			std::pair<std::string, std::string> dane = wczytajUzytkownikow();
+			std::pair<std::string, std::string> dane = Uzytkownicy::wczytajUzytkownikow();
 			if (dane.first == "Bibliotekarz") {
 				wskaznik = &biblio;
 				wskaznik->menu();
@@ -30,6 +31,8 @@ int main() {
 			}
 			else if (dane.first == "Czytelnik") {
 				Czytelnik czytacz("", "", dane.second, "", "");
+				
+
 				wskaznik = &czytacz;
 				wskaznik->menu();
 			}

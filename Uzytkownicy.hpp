@@ -14,6 +14,7 @@ public:
 	virtual void wyswietlKsiazki() = 0;
 	virtual void wyswietlUzytkownikow() = 0;
 	virtual void dodajUzytkownika() = 0;
+
+	static std::pair<std::string, std::string> wczytajUzytkownikow();
 	
 };
-std::pair<std::string, std::string> wczytajUzytkownikow();

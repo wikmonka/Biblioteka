@@ -8,15 +8,15 @@
 #include <cstdlib>//exit przy sprawdzaniu odczytu pliku
 
 
-Bibliotekarz::Bibliotekarz(std::string i, std::string n, std::string l, std::string h, std::string r)
-	: Uzytkownicy(i, n, l, h, r) {}
+
 
 Bibliotekarz::Bibliotekarz() : Uzytkownicy("", "", "", "", "") {}
 
 
 
+
 void Bibliotekarz::menu() {
-	std::cout << "Udalo sie! Wyswietlam menu dla Bibliotekarza" << std::endl;
+	std::cout << "Menu dla Bibliotekarza" << std::endl;
 	while (true) {
 		std::string wybor;
 		Ksiazka ksiazka;

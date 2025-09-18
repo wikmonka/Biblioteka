@@ -9,8 +9,7 @@
 
 
 
-Ksiazka::Ksiazka(/*int id, */std::string t, std::string a_i, std::string a_n, std::string g, std::string o, int r_w, std::string n, std::string s) {
-	//id_ksiazki = id;
+Ksiazka::Ksiazka(std::string t, std::string a_i, std::string a_n, std::string g, std::string o, int r_w, std::string n, std::string s) {
 	tytul = t;
 	autor_imie = a_i;
 	autor_nazwisko = a_n;
@@ -24,7 +23,7 @@ Ksiazka::Ksiazka(/*int id, */std::string t, std::string a_i, std::string a_n, st
 
 void Ksiazka::zapiszKsiazke() {
 
-	//id_ksiazki++;
+	
 	std::cout << "\n";
 	std::cout << "Podaj tytul ksiazki: ";
 	std::getline(std::cin >> std::ws,tytul); //czysci pierwsza linie przed getline

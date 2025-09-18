@@ -2,3 +2,9 @@ Dzuma;Albert;Camus;Dramat;Dramat opowiadajacy o epidemii dzumy;1947;audiobook;wo
 Harry Potter;J.K.;Rowling;Beletrystyka;Opowiesc o malym czarodzieju;1980;ksiazka;wolna
 Metro2033;Dimitry;Glukhowsky;Horror;Post-apo o ludziach zyjacych w Moskiewskim metrze;2000;e-book;wolna
 Pan Tadeusz;Adam;Mickiewicz;Dramat;troche o ksiedzu Robaku,troche o Jacku Soplicy;1800;e-book;mati
+Pieklo jest puste;Remigiusz;Mroz;Thriller;Nowa ksiazka Mroza;2024;ksiazka;wolna
+Golfowe Oswiecenie;Tomasz;Zembrowski;Dokument;ksiazka o golfie;2022;audiobook;wolna
+Trener Boksu. Sukces zaczyna sie w glowie;Adam;Wojcik;Biografia;Ksiazka o boksie;2020;e-book;wolna
+Na polu Startowym;Luke;Smith;Horror;opis ksiazki;2010;ksiazka;wolna
+wulo;wulo;wulo;Horror;wulo;2025;ksiazka;wolna
+wulo cz2;wulo;wulo;Horror;wulo trzeci semestr;2026;ksiazka;wolna
