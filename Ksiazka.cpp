@@ -39,7 +39,7 @@ void Ksiazka::zapiszKsiazke() {
 	std::getline(std::cin, opis);
 	std::cout << "Podaj rok wydania: ";
 	std::cin >> rok_wydania;
-	std::cout << "nosnik (ksiazka/e-book/audiobook): ";
+	std::cout << "Podaj nosnik (ksiazka/e-book/audiobook): ";
 	std::cin >> nosnik;
 
 	std::ofstream plik("ksiazki.txt", std::ios::app);
